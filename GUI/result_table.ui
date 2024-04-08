@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>642</width>
+    <height>377</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>611</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>парам\№ п/п</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Возможность установки под воду</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Кол.-во ОВ</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Герметизация ТУТ</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Артикул</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Поставщик</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Завод производ.</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Масса кг</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Цена т.р.</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </column>
+   <item row="1" column="0">
+    <property name="text">
+     <string>Да</string>
+    </property>
+   </item>
+   <item row="1" column="1">
+    <property name="text">
+     <string>Да</string>
+    </property>
+   </item>
+   <item row="1" column="2">
+    <property name="text">
+     <string>Да</string>
+    </property>
+   </item>
+   <item row="1" column="3">
+    <property name="text">
+     <string>Да</string>
+    </property>
+   </item>
+   <item row="2" column="0">
+    <property name="text">
+     <string>216</string>
+    </property>
+   </item>
+   <item row="2" column="1">
+    <property name="text">
+     <string>216</string>
+    </property>
+   </item>
+   <item row="2" column="2">
+    <property name="text">
+     <string>216</string>
+    </property>
+   </item>
+   <item row="2" column="3">
+    <property name="text">
+     <string>144</string>
+    </property>
+   </item>
+   <item row="3" column="0">
+    <property name="text">
+     <string>+</string>
+    </property>
+   </item>
+   <item row="3" column="1">
+    <property name="text">
+     <string>+</string>
+    </property>
+   </item>
+   <item row="3" column="2">
+    <property name="text">
+     <string>-</string>
+    </property>
+   </item>
+   <item row="3" column="3">
+    <property name="text">
+     <string>-</string>
+    </property>
+   </item>
+   <item row="4" column="0">
+    <property name="text">
+     <string>130103-00071</string>
+    </property>
+   </item>
+   <item row="4" column="1">
+    <property name="text">
+     <string>130103-00821</string>
+    </property>
+   </item>
+   <item row="4" column="2">
+    <property name="text">
+     <string>130103-00079</string>
+    </property>
+   </item>
+   <item row="4" column="3">
+    <property name="text">
+     <string>130103-00077</string>
+    </property>
+   </item>
+   <item row="5" column="0">
+    <property name="text">
+     <string>ООО «Связьстройдеталь»</string>
+    </property>
+   </item>
+   <item row="5" column="1">
+    <property name="text">
+     <string>ООО «Связьстройдеталь»</string>
+    </property>
+   </item>
+   <item row="5" column="2">
+    <property name="text">
+     <string>ООО «Связьстройдеталь»</string>
+    </property>
+   </item>
+   <item row="5" column="3">
+    <property name="text">
+     <string>ООО «Связьстройдеталь»</string>
+    </property>
+   </item>
+   <item row="6" column="0">
+    <property name="text">
+     <string>Инкаб</string>
+    </property>
+   </item>
+   <item row="6" column="1">
+    <property name="text">
+     <string>Инкаб</string>
+    </property>
+   </item>
+   <item row="6" column="2">
+    <property name="text">
+     <string>Инкаб</string>
+    </property>
+   </item>
+   <item row="6" column="3">
+    <property name="text">
+     <string>Инкаб</string>
+    </property>
+   </item>
+   <item row="7" column="0">
+    <property name="text">
+     <string>3,2</string>
+    </property>
+   </item>
+   <item row="7" column="1">
+    <property name="text">
+     <string>2,9</string>
+    </property>
+   </item>
+   <item row="7" column="2">
+    <property name="text">
+     <string>2,8</string>
+    </property>
+   </item>
+   <item row="7" column="3">
+    <property name="text">
+     <string>2,6</string>
+    </property>
+   </item>
+   <item row="8" column="0">
+    <property name="text">
+     <string>6,177</string>
+    </property>
+   </item>
+   <item row="8" column="1">
+    <property name="text">
+     <string>5,566</string>
+    </property>
+   </item>
+   <item row="8" column="2">
+    <property name="text">
+     <string>5,060</string>
+    </property>
+   </item>
+   <item row="8" column="3">
+    <property name="text">
+     <string>3,817</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Наилучший результат: </string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>340</y>
+     <width>281</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>2.	Кабель ВО ДПС – П– 16А (4х4) – 7 кН, 16 волокон SM</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
