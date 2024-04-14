@@ -14,6 +14,7 @@ from modules import imgView
 first_window_muft_params = []
 params_muft_after_click = []
 
+
 class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
     def __init__(self):
         super().__init__()
@@ -97,9 +98,11 @@ class WindowGetResult(QtWidgets.QWidget):
         self.ui_get_result = Ui_FormGetResult()
         self.ui_get_result.setupUi(self)
         self.get_hint()
+        self.set_area_params()
         self.get_list_form = MuftList()
         self.ui_get_result.comboBox_5.currentTextChanged.connect(self.get_hint)
         self.ui_get_result.pushButton_get_muft_list.clicked.connect(self.show_muft_list)
+        self.ui_get_result.comboBox_6.currentTextChanged.connect(self.set_area_params)
 
     def get_hint(self):
         if self.ui_get_result.comboBox_5.currentText() == 'МТОК-А1/216-1KT3645-K-77':
@@ -115,12 +118,25 @@ class WindowGetResult(QtWidgets.QWidget):
     def show_muft_list(self):
         self.get_list_form.show()
 
+    def set_area_params(self):
+        if self.ui_get_result.comboBox_6.currentText() == 'Под водой' or self.ui_get_result.comboBox_6.currentText() == 'Болото':
+            self.ui_get_result.lineEdit_5.setText('Муфта чугунная защитная (МЧЗ)')
+            self.ui_get_result.lineEdit_7.setText('23')
+            self.ui_get_result.lineEdit_8.setText('4882.0')
+            self.ui_get_result.lineEdit_9.setText('130104-00034')
+        elif self.ui_get_result.comboBox_6.currentText() == 'Прочие грунты':
+            self.ui_get_result.lineEdit_5.setText('Муфта пластмассовая защитная (МПЗ)')
+            self.ui_get_result.lineEdit_7.setText('2.3')
+            self.ui_get_result.lineEdit_8.setText('2014.28')
+            self.ui_get_result.lineEdit_9.setText('130104-00015')
+
 
 class MuftList(QtWidgets.QWidget):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui_get_list = Ui_Form_muft_list()
         self.ui_get_list.setupUi(self)
+
 
 def main():
     app = QApplication(sys.argv)
