@@ -404,7 +404,7 @@
   <widget class="QPushButton" name="pushButton_get_muft_list">
    <property name="geometry">
     <rect>
-     <x>560</x>
+     <x>390</x>
      <y>130</y>
      <width>181</width>
      <height>23</height>
@@ -530,6 +530,19 @@
    </property>
    <property name="text">
     <string>рублей</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_get_cables_list">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>130</y>
+     <width>211</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Показать список кабелей</string>
    </property>
   </widget>
  </widget>

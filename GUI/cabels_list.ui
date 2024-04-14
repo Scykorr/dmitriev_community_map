@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form_list_of_cables</class>
+ <widget class="QWidget" name="Form_list_of_cables">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>836</width>
+    <height>486</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Список кабелей</string>
+  </property>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>30</y>
+     <width>331</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1) ВО ДПС – П– 32А (4х8) – 7 кН, 32 волокна SM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2) ВО ДПС – П– 16А (4х4) – 7 кН, 16 волокон SM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3) ВО ДПС – Н – 08У (2х4) – 7 кН, 8 волокон SM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4) ВО ДПС – Н – 04У (1х4) – 7 кН, 4 волокна SM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5) ВО ТОС – П – 24А – 7 кН, 24 волокон SM</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>6) ВО ТОС – П – 04У – 7 кН, 4 волокна SM</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Наименование кабеля</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>450</y>
+     <width>321</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>2) ВО ДПС – П– 16А (4х4) – 7 кН, 16 волокон SM</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>430</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Лучший выбор</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>801</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <row>
+    <property name="text">
+     <string>Парам \ № п/п</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Диэлектрическая конструкция</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Усилие растяжения</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Конструкция</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Кол.-во ОВ</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Оболочка</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Артикул</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Поставщик</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Завод производитель</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Масса кг/км</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>Цена т.р./км</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </column>
+   <item row="1" column="0">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="1" column="1">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="1" column="2">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="1" column="3">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="1" column="4">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="1" column="5">
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
+   <item row="2" column="0">
+    <property name="text">
+     <string>7 кН</string>
+    </property>
+   </item>
+   <item row="2" column="1">
+    <property name="text">
+     <string>7 кН</string>
+    </property>
+   </item>
+   <item row="2" column="2">
+    <property name="text">
+     <string>7 кН</string>
+    </property>
+   </item>
+   <item row="2" column="3">
+    <property name="text">
+     <string>7 кН</string>
+    </property>
+   </item>
+   <item row="2" column="4">
+    <property name="text">
+     <string>2.7 кН (7 кН)</string>
+    </property>
+   </item>
+   <item row="2" column="5">
+    <property name="text">
+     <string>2.7 кН (7 кН)</string>
+    </property>
+   </item>
+   <item row="3" column="0">
+    <property name="text">
+     <string>ММ</string>
+    </property>
+   </item>
+   <item row="3" column="1">
+    <property name="text">
+     <string>ММ</string>
+    </property>
+   </item>
+   <item row="3" column="2">
+    <property name="text">
+     <string>ММ</string>
+    </property>
+   </item>
+   <item row="3" column="3">
+    <property name="text">
+     <string>ММ</string>
+    </property>
+   </item>
+   <item row="3" column="4">
+    <property name="text">
+     <string>ЦМ</string>
+    </property>
+   </item>
+   <item row="3" column="5">
+    <property name="text">
+     <string>ЦМ</string>
+    </property>
+   </item>
+   <item row="4" column="0">
+    <property name="text">
+     <string>32</string>
+    </property>
+   </item>
+   <item row="4" column="1">
+    <property name="text">
+     <string>16</string>
+    </property>
+   </item>
+   <item row="4" column="2">
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+   <item row="4" column="3">
+    <property name="text">
+     <string>24</string>
+    </property>
+   </item>
+   <item row="4" column="4">
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+   <item row="4" column="5">
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
+   <item row="5" column="0">
+    <property name="text">
+     <string>–П–</string>
+    </property>
+   </item>
+   <item row="5" column="1">
+    <property name="text">
+     <string>–П–</string>
+    </property>
+   </item>
+   <item row="5" column="2">
+    <property name="text">
+     <string>–Н–</string>
+    </property>
+   </item>
+   <item row="5" column="3">
+    <property name="text">
+     <string>–Н–</string>
+    </property>
+   </item>
+   <item row="5" column="4">
+    <property name="text">
+     <string>–П–</string>
+    </property>
+   </item>
+   <item row="5" column="5">
+    <property name="text">
+     <string>–П–</string>
+    </property>
+   </item>
+   <item row="6" column="0">
+    <property name="text">
+     <string>130905-00573</string>
+    </property>
+   </item>
+   <item row="6" column="1">
+    <property name="text">
+     <string>130905-00179</string>
+    </property>
+   </item>
+   <item row="6" column="2">
+    <property name="text">
+     <string>130905-00438</string>
+    </property>
+   </item>
+   <item row="6" column="3">
+    <property name="text">
+     <string>130905-00234</string>
+    </property>
+   </item>
+   <item row="6" column="4">
+    <property name="text">
+     <string>02-0593</string>
+    </property>
+   </item>
+   <item row="6" column="5">
+    <property name="text">
+     <string>02-0592</string>
+    </property>
+   </item>
+   <item row="7" column="0">
+    <property name="text">
+     <string>ООО «ОптикТорг»</string>
+    </property>
+   </item>
+   <item row="7" column="1">
+    <property name="text">
+     <string>ООО «ОптикТорг»</string>
+    </property>
+   </item>
+   <item row="7" column="2">
+    <property name="text">
+     <string>ООО «ОптикТорг»</string>
+    </property>
+   </item>
+   <item row="7" column="3">
+    <property name="text">
+     <string>ООО «ОптикТорг»</string>
+    </property>
+   </item>
+   <item row="7" column="4">
+    <property name="text">
+     <string>ООО «КамБэк-Урал»</string>
+    </property>
+   </item>
+   <item row="7" column="5">
+    <property name="text">
+     <string>ООО «КамБэк-Урал»</string>
+    </property>
+   </item>
+   <item row="8" column="0">
+    <property name="text">
+     <string>Связьстрой деталь</string>
+    </property>
+   </item>
+   <item row="8" column="1">
+    <property name="text">
+     <string>Связьстрой деталь</string>
+    </property>
+   </item>
+   <item row="8" column="2">
+    <property name="text">
+     <string>Связьстрой деталь</string>
+    </property>
+   </item>
+   <item row="8" column="3">
+    <property name="text">
+     <string>Связьстрой деталь</string>
+    </property>
+   </item>
+   <item row="8" column="4">
+    <property name="text">
+     <string>Сарансккабель - оптика</string>
+    </property>
+   </item>
+   <item row="8" column="5">
+    <property name="text">
+     <string>Сарансккабель - оптика</string>
+    </property>
+   </item>
+   <item row="9" column="0">
+    <property name="text">
+     <string>240</string>
+    </property>
+   </item>
+   <item row="9" column="1">
+    <property name="text">
+     <string>228.3</string>
+    </property>
+   </item>
+   <item row="9" column="2">
+    <property name="text">
+     <string>231</string>
+    </property>
+   </item>
+   <item row="9" column="3">
+    <property name="text">
+     <string>231</string>
+    </property>
+   </item>
+   <item row="9" column="4">
+    <property name="text">
+     <string>79</string>
+    </property>
+   </item>
+   <item row="9" column="5">
+    <property name="text">
+     <string>59</string>
+    </property>
+   </item>
+   <item row="10" column="0">
+    <property name="text">
+     <string>76.376</string>
+    </property>
+   </item>
+   <item row="10" column="1">
+    <property name="text">
+     <string>59.975</string>
+    </property>
+   </item>
+   <item row="10" column="2">
+    <property name="text">
+     <string>59.542</string>
+    </property>
+   </item>
+   <item row="10" column="3">
+    <property name="text">
+     <string>53.568</string>
+    </property>
+   </item>
+   <item row="10" column="4">
+    <property name="text">
+     <string>24.348 (56.213)</string>
+    </property>
+   </item>
+   <item row="10" column="5">
+    <property name="text">
+     <string>22.156 (54.114)</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

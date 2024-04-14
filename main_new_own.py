@@ -6,13 +6,14 @@ from PyQt5 import QtWidgets
 from GUIpy import main_new_own, set_scale
 from GUIpy.get_result import Ui_FormGetResult
 from GUIpy.result_table import Ui_Form_muft_list
+from GUIpy.main_result import Ui_Form_main_result
+from GUIpy.cabels_list import Ui_Form_list_of_cables
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMenu, QAction, qApp
 
 from modules import imgView
 
 first_window_muft_params = []
-params_muft_after_click = []
 
 
 class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
@@ -97,12 +98,20 @@ class WindowGetResult(QtWidgets.QWidget):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui_get_result = Ui_FormGetResult()
         self.ui_get_result.setupUi(self)
+        self.params_muft_area = []
         self.get_hint()
         self.set_area_params()
         self.get_list_form = MuftList()
         self.ui_get_result.comboBox_5.currentTextChanged.connect(self.get_hint)
         self.ui_get_result.pushButton_get_muft_list.clicked.connect(self.show_muft_list)
         self.ui_get_result.comboBox_6.currentTextChanged.connect(self.set_area_params)
+        self.ui_get_result.pushButton.clicked.connect(self.get_result)
+        self.get_main_result = MainResult()
+        self.cabels_list = CabelsList()
+        self.ui_get_result.pushButton_get_cables_list.clicked.connect(self.get_cabels_list)
+
+    def get_cabels_list(self):
+        self.cabels_list.show()
 
     def get_hint(self):
         if self.ui_get_result.comboBox_5.currentText() == 'МТОК-А1/216-1KT3645-K-77':
@@ -119,16 +128,28 @@ class WindowGetResult(QtWidgets.QWidget):
         self.get_list_form.show()
 
     def set_area_params(self):
+        self.params_muft_area.clear()
         if self.ui_get_result.comboBox_6.currentText() == 'Под водой' or self.ui_get_result.comboBox_6.currentText() == 'Болото':
             self.ui_get_result.lineEdit_5.setText('Муфта чугунная защитная (МЧЗ)')
             self.ui_get_result.lineEdit_7.setText('23')
             self.ui_get_result.lineEdit_8.setText('4882.0')
             self.ui_get_result.lineEdit_9.setText('130104-00034')
+            self.params_muft_area.append('Муфта чугунная защитная (МЧЗ)')
+            self.params_muft_area.append(23)
+            self.params_muft_area.append(4882.0)
+            self.params_muft_area.append('130104-00034')
         elif self.ui_get_result.comboBox_6.currentText() == 'Прочие грунты':
             self.ui_get_result.lineEdit_5.setText('Муфта пластмассовая защитная (МПЗ)')
             self.ui_get_result.lineEdit_7.setText('2.3')
             self.ui_get_result.lineEdit_8.setText('2014.28')
             self.ui_get_result.lineEdit_9.setText('130104-00015')
+            self.params_muft_area.append('Муфта пластмассовая защитная (МПЗ)')
+            self.params_muft_area.append(2.3)
+            self.params_muft_area.append(2014.28)
+            self.params_muft_area.append('130104-00015')
+
+    def get_result(self):
+        self.get_main_result.show()
 
 
 class MuftList(QtWidgets.QWidget):
@@ -136,6 +157,20 @@ class MuftList(QtWidgets.QWidget):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui_get_list = Ui_Form_muft_list()
         self.ui_get_list.setupUi(self)
+
+
+class MainResult(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui_get_main_result = Ui_Form_main_result()
+        self.ui_get_main_result.setupUi(self)
+
+
+class CabelsList(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        QtWidgets.QWidget.__init__(self, parent)
+        self.ui_get_cabels_list = Ui_Form_list_of_cables()
+        self.ui_get_cabels_list.setupUi(self)
 
 
 def main():

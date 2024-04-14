@@ -108,7 +108,7 @@ class Ui_FormGetResult(object):
         self.comboBox_6.addItem("")
         self.comboBox_6.addItem("")
         self.pushButton_get_muft_list = QtWidgets.QPushButton(FormGetResult)
-        self.pushButton_get_muft_list.setGeometry(QtCore.QRect(560, 130, 181, 23))
+        self.pushButton_get_muft_list.setGeometry(QtCore.QRect(390, 130, 181, 23))
         self.pushButton_get_muft_list.setObjectName("pushButton_get_muft_list")
         self.lineEdit_5 = QtWidgets.QLineEdit(FormGetResult)
         self.lineEdit_5.setGeometry(QtCore.QRect(510, 250, 241, 20))
@@ -140,6 +140,9 @@ class Ui_FormGetResult(object):
         self.label_21 = QtWidgets.QLabel(FormGetResult)
         self.label_21.setGeometry(QtCore.QRect(760, 350, 47, 16))
         self.label_21.setObjectName("label_21")
+        self.pushButton_get_cables_list = QtWidgets.QPushButton(FormGetResult)
+        self.pushButton_get_cables_list.setGeometry(QtCore.QRect(600, 130, 211, 23))
+        self.pushButton_get_cables_list.setObjectName("pushButton_get_cables_list")
 
         self.retranslateUi(FormGetResult)
         QtCore.QMetaObject.connectSlotsByName(FormGetResult)
@@ -186,6 +189,7 @@ class Ui_FormGetResult(object):
         self.label_19.setText(_translate("FormGetResult", "Наименование"))
         self.label_20.setText(_translate("FormGetResult", "кг"))
         self.label_21.setText(_translate("FormGetResult", "рублей"))
+        self.pushButton_get_cables_list.setText(_translate("FormGetResult", "Показать список кабелей"))
 
 
 if __name__ == "__main__":
