@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication
 from GUIpy import result_table
 
 
-class SetScale(QtWidgets.QWidget, result_table.Ui_Form):
+class SetScale(QtWidgets.QWidget, result_table.Ui_Form_muft_list):
     def __init__(self):
         super().__init__()
         self.setupUi(self)

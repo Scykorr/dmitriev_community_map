@@ -155,7 +155,7 @@ class Ui_FormGetResult(object):
         self.lineEdit.setText(_translate("FormGetResult", "65"))
         self.label_3.setText(_translate("FormGetResult", "км"))
         self.label_5.setText(_translate("FormGetResult", "Коэффициент запаса"))
-        self.lineEdit_2.setText(_translate("FormGetResult", "1,05"))
+        self.lineEdit_2.setText(_translate("FormGetResult", "1.05"))
         self.label_6.setText(_translate("FormGetResult", "км"))
         self.label_7.setText(_translate("FormGetResult", "Длина кабеля"))
         self.lineEdit_3.setText(_translate("FormGetResult", "68,25"))
