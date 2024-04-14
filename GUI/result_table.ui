@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>Form_muft_list</class>
+ <widget class="QWidget" name="Form_muft_list">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Характеристики муфт</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
@@ -271,7 +271,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>2.	Кабель ВО ДПС – П– 16А (4х4) – 7 кН, 16 волокон SM</string>
+    <string>МТОК-А1/216-1KT3645-K-77</string>
    </property>
   </widget>
  </widget>

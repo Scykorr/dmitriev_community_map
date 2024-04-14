@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>FormGetResult</class>
+ <widget class="QWidget" name="FormGetResult">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>830</width>
-    <height>381</height>
+    <width>867</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -310,8 +310,8 @@
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>120</y>
+     <x>480</x>
+     <y>190</y>
      <width>111</width>
      <height>16</height>
     </rect>
@@ -347,25 +347,40 @@
      <string>МТОК-А1/216-1KT3645-K-77</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>МТОК-Б1/216-1KT3645-K-44</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>МТОК-В2/216-1KT3645-K-44</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>МТОК-М6/144-1KT3645-K-44</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>350</y>
+     <x>300</x>
+     <y>420</y>
      <width>151</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Найти</string>
+    <string>Расчет</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox_6">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>120</y>
+     <x>610</x>
+     <y>190</y>
      <width>141</width>
      <height>22</height>
     </rect>
@@ -385,6 +400,111 @@
      <string>Прочие грунты</string>
     </property>
    </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton_get_muft_list">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>130</y>
+     <width>181</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Показать характеристики муфт</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_5">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>250</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_7">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>300</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_8">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>350</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_9">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>400</y>
+     <width>241</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>280</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Вес</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>330</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Цена</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>380</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Артикул</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>230</y>
+     <width>81</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Наименование</string>
+   </property>
   </widget>
  </widget>
  <resources/>
