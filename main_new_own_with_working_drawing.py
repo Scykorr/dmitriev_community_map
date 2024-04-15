@@ -3,14 +3,18 @@
 
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QCursor, QImage, QPixmap
+
 from GUIpy import main_new_own, set_scale
 from GUIpy.get_result import Ui_FormGetResult
 from GUIpy.result_table import Ui_Form_muft_list
 from GUIpy.main_result import Ui_Form_main_result
 from GUIpy.cabels_list import Ui_Form_list_of_cables
-from PyQt5.QtWidgets import QApplication, QTableWidgetItem
+from show_test_img import Window
+from PyQt5.QtWidgets import QApplication, QTableWidgetItem, QFileDialog, QMessageBox
 from PyQt5.QtWidgets import QMenu, QAction, qApp
-from math import ceil
+from math import ceil, sqrt, pow
 
 from modules import imgView
 
@@ -21,14 +25,51 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.imageView = imgView.QImageView(window=self)
-        self.setCentralWidget(self.imageView.centralWidget)
-        self.createActions(self.imageView)
-        self.setCentralWidget(self.imageView.centralWidget)
+        #self.imageView = imgView.QImageView(window=self)
+        # self.setCentralWidget(self.imageView.centralWidget)
+
+        self.createActions()
+        self.scaling = 1
+        self.image = None
+        self.points_list = self.get_coords_from_txt()
+        self.open_img()
+        self.new_win = Window(self.image, self.points_list)
+        self.draw_flags()
+        self.setCentralWidget(self.new_win)
+
         self.createMenus()
         self.setWindowTitle('Построение оптического линейного тракта')
         self.lenght = 65
         self.get_result_window = WindowGetResult()
+
+    def draw_flags(self):
+        for el in self.points_list:
+            new_el = el.split()
+            self.new_win.draw_flag(int(new_el[0]), int(new_el[1]))
+    def get_coords_from_txt(self):
+        with open('coordinates.txt', 'r') as f:
+            temp = f.read().splitlines()
+
+        return temp
+        # self.new_win.draw_flag(30, 150)
+
+    def open_img(self):
+        options = QFileDialog.Options()
+        self.fileName, _ = QFileDialog.getOpenFileName(self, 'QFileDialog.getOpenFileName()', '',
+                                                       'Images (*.png *.jpeg *.jpg *.bmp *.gif)', options=options)
+        if self.fileName:
+            self.image = QImage(self.fileName)
+            if self.image.isNull():
+                QMessageBox.information(self, "Image Viewer", "Cannot load %s." % self.fileName)
+        self.image = QPixmap(self.fileName)
+
+    def mousePressEvent(self, event):
+
+        if event.button() == Qt.LeftButton:
+            self.pressPos = event.pos()
+            pos = QCursor.pos()
+            # self.new_win.draw_flag(pos.x(), pos.y())
+            print(pos.x(), pos.y())
 
     def fitToWindow(self):
         fitToWindow = self.fitToWindowAct.isChecked()
@@ -39,24 +80,31 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
 
         self.imageView.updateActions()
 
-    def createActions(self, view):
-        self.openAct = QAction("&Открыть", self, shortcut="Ctrl+O", triggered=view.open_img)
-        self.printAct = QAction("&Печать", self, shortcut="Ctrl+P", enabled=False, triggered=view.print_img)
+    def createActions(self):
+        self.openAct = QAction("&Открыть", self, shortcut="Ctrl+O", triggered=self.fitToWindow)
+        self.printAct = QAction("&Печать", self, shortcut="Ctrl+P", enabled=False, triggered=self.fitToWindow)
         # self.exitAct = QAction("E&xit", self, shortcut="Ctrl+Q", triggered=image.close)
-        self.zoomInAct = QAction("&Увеличить (5%)", self, shortcut="Ctrl++", enabled=False, triggered=view.zoomIn)
-        self.zoomOutAct = QAction("&Уменьшить (5%)", self, shortcut="Ctrl+-", enabled=False, triggered=view.zoomOut)
+        self.zoomInAct = QAction("&Увеличить (5%)", self, shortcut="Ctrl++", enabled=False, triggered=self.fitToWindow)
+        self.zoomOutAct = QAction("&Уменьшить (5%)", self, shortcut="Ctrl+-", enabled=False, triggered=self.fitToWindow)
         self.normalSizeAct = QAction("&Нормальный размер", self, shortcut="Ctrl+S", enabled=False,
-                                     triggered=view.normalSize)
+                                     triggered=self.fitToWindow)
         self.fitToWindowAct = QAction("&Вместить в окно", self,
                                       enabled=False, checkable=True, shortcut="Ctrl+F", triggered=self.fitToWindow)
         self.addScale = QAction("&Масштаб карты", self,
-                                enabled=True, checkable=True, shortcut="Ctrl+Q", triggered=self.fitToWindow)
-        self.aboutAct = QAction("&О программе", self, triggered=view.about)
+                                enabled=True, checkable=True, triggered=self.get_img_scale)
+        self.aboutAct = QAction("&О программе", self, triggered=self.fitToWindow)
         self.aboutQtAct = QAction("О &Qt", self, triggered=qApp.aboutQt)
-        self.figures = QAction("&Фигуры", self, triggered=view.paintEvent)
-        self.add_flag = QAction("&Добавить точку", self, triggered=view.paintEvent)
+        self.figures = QAction("&Фигуры", self, triggered=self.fitToWindow)
+        self.add_flag = QAction("&Добавить точку", self, triggered=self.fitToWindow)
         self.get_result = QAction("&Произвести рассчет", self, triggered=self.getResult)
-        self.scaling = QAction("&Масштабирование", self, enabled=False, triggered=view.scaling_img)
+
+    def get_img_scale(self):
+        scaling_value, ok = QtWidgets.QInputDialog.getText(None, "Введите масштаб",
+                                                           "Масштаб в 1 см на карте : N км",
+                                                           text="10")
+        if ok:
+            self.scale_value = int(scaling_value) / 37.936267
+            print(self.scale_value)
 
     def getResult(self):
         self.get_result_window.ui_get_result.lineEdit.setText(f'{self.lenght}')
@@ -83,7 +131,6 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
         self.toolMenu = QMenu("&Панель инструментов", self)
         self.toolMenu.addAction(self.add_flag)
         self.toolMenu.addAction(self.figures)
-        self.toolMenu.addAction(self.scaling)
         self.toolMenu.addAction(self.get_result)
 
         self.helpMenu = QMenu("&Помощь", self)
@@ -126,7 +173,6 @@ class WindowGetResult(QtWidgets.QWidget):
         self.ui_get_result.lineEdit_3.setText(
             f'{round(float(self.ui_get_result.lineEdit.text()) * float(self.ui_get_result.lineEdit_2.text()), 2)}')
         self.ui_get_result.lineEdit_4.setText(f'{ceil(float(self.ui_get_result.lineEdit.text()) / 6000 + 2)}')
-
 
     def get_cabels_list(self):
         self.cabels_list.show()
@@ -329,11 +375,9 @@ class WindowGetResult(QtWidgets.QWidget):
         self.get_main_result.ui_get_main_result.tableWidget.setItem(8, 9,
                                                                     QTableWidgetItem(f'{tapes_price_common}'))
 
-        self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 7, QTableWidgetItem(f'{round(common_weight, 3)}'))
+        self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 7,
+                                                                    QTableWidgetItem(f'{round(common_weight, 3)}'))
         self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 9, QTableWidgetItem(f'{common_price}'))
-
-
-
 
         self.get_main_result.show()
 
