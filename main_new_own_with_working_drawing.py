@@ -24,8 +24,9 @@ first_window_muft_params = []
 class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
     def __init__(self):
         super().__init__()
+        self.scale_value = 1
         self.setupUi(self)
-        #self.imageView = imgView.QImageView(window=self)
+        # self.imageView = imgView.QImageView(window=self)
         # self.setCentralWidget(self.imageView.centralWidget)
 
         self.createActions()
@@ -39,13 +40,24 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
 
         self.createMenus()
         self.setWindowTitle('Построение оптического линейного тракта')
-        self.lenght = 65
+
+        self.lenght = 0
+        self.get_lenght()
         self.get_result_window = WindowGetResult()
+
+    def get_lenght(self):
+        self.lenght = 0
+        for el_num in range(0, len(self.points_list) - 1):
+            new_el = self.points_list[el_num].split()
+            new_el_next = self.points_list[el_num + 1].split()
+            self.lenght += round(sqrt(
+                pow(int(new_el_next[0]) - int(new_el[0]), 2) + pow(int(new_el_next[1]) - int(new_el[1]), 2)), 2)
 
     def draw_flags(self):
         for el in self.points_list:
             new_el = el.split()
             self.new_win.draw_flag(int(new_el[0]), int(new_el[1]))
+
     def get_coords_from_txt(self):
         with open('coordinates.txt', 'r') as f:
             temp = f.read().splitlines()
@@ -104,7 +116,7 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
                                                            text="10")
         if ok:
             self.scale_value = int(scaling_value) / 37.936267
-            print(self.scale_value)
+            self.lenght = round(self.lenght * self.scale_value, 3)
 
     def getResult(self):
         self.get_result_window.ui_get_result.lineEdit.setText(f'{self.lenght}')
@@ -377,7 +389,7 @@ class WindowGetResult(QtWidgets.QWidget):
 
         self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 7,
                                                                     QTableWidgetItem(f'{round(common_weight, 3)}'))
-        self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 9, QTableWidgetItem(f'{common_price}'))
+        self.get_main_result.ui_get_main_result.tableWidget.setItem(9, 9, QTableWidgetItem(f'{round(common_price, 3)}'))
 
         self.get_main_result.show()
 
