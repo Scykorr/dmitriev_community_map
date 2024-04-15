@@ -124,9 +124,9 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
 
     def createMenus(self):
         self.fileMenu = QMenu("&Файл", self)
-        self.fileMenu.addAction(self.openAct)
+        # self.fileMenu.addAction(self.openAct)
 
-        self.fileMenu.addSeparator()
+        # self.fileMenu.addSeparator()
         self.fileMenu.addAction(self.printAct)
 
         self.fileMenu.addSeparator()
@@ -134,25 +134,25 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
 
         self.viewMenu = QMenu("&Вид", self)
         self.viewMenu.addAction(self.addScale)
-        self.viewMenu.addAction(self.zoomInAct)
-        self.viewMenu.addAction(self.zoomOutAct)
-        self.viewMenu.addAction(self.normalSizeAct)
-        self.viewMenu.addSeparator()
-        self.viewMenu.addAction(self.fitToWindowAct)
+        # self.viewMenu.addAction(self.zoomInAct)
+        # self.viewMenu.addAction(self.zoomOutAct)
+        # self.viewMenu.addAction(self.normalSizeAct)
+        # self.viewMenu.addSeparator()
+        # self.viewMenu.addAction(self.fitToWindowAct)
 
         self.toolMenu = QMenu("&Панель инструментов", self)
-        self.toolMenu.addAction(self.add_flag)
-        self.toolMenu.addAction(self.figures)
+        # self.toolMenu.addAction(self.add_flag)
+        # self.toolMenu.addAction(self.figures)
         self.toolMenu.addAction(self.get_result)
 
-        self.helpMenu = QMenu("&Помощь", self)
-        self.helpMenu.addAction(self.aboutAct)
-        self.helpMenu.addAction(self.aboutQtAct)
-
+        # self.helpMenu = QMenu("&Помощь", self)
+        # self.helpMenu.addAction(self.aboutAct)
+        # self.helpMenu.addAction(self.aboutQtAct)
+        #
         self.menuBar().addMenu(self.fileMenu)
         self.menuBar().addMenu(self.viewMenu)
         self.menuBar().addMenu(self.toolMenu)
-        self.menuBar().addMenu(self.helpMenu)
+        # self.menuBar().addMenu(self.helpMenu)
 
 
 class WindowGetResult(QtWidgets.QWidget):
