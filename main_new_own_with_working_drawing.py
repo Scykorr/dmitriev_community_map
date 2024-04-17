@@ -46,12 +46,12 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
         self.get_result_window = WindowGetResult()
 
     def get_lenght(self):
-        self.lenght = 0
+        self.input_lenght = 0
         for el_num in range(0, len(self.points_list) - 1):
             new_el = self.points_list[el_num].split()
             new_el_next = self.points_list[el_num + 1].split()
-            self.lenght += round(sqrt(
-                pow(int(new_el_next[0]) - int(new_el[0]), 2) + pow(int(new_el_next[1]) - int(new_el[1]), 2)), 2)
+            self.input_lenght += round(sqrt(
+                pow(int(new_el_next[0]) - int(new_el[0]), 2) + pow(int(new_el_next[1]) - int(new_el[1]), 2)) / 37.936267, 2)
 
     def draw_flags(self):
         for el in self.points_list:
@@ -115,8 +115,9 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
                                                            "Масштаб в 1 см на карте : N км",
                                                            text="10")
         if ok:
-            self.scale_value = int(scaling_value) / 37.936267
-            self.lenght = round(self.lenght * self.scale_value, 3)
+            # self.scale_value = float(scaling_value) / 37.936267
+            self.scale_value = float(scaling_value) / 1
+            self.lenght = round(self.input_lenght * self.scale_value, 3)
 
     def getResult(self):
         self.get_result_window.ui_get_result.lineEdit.setText(f'{self.lenght}')
