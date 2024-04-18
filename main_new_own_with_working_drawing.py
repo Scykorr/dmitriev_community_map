@@ -249,7 +249,7 @@ class WindowGetResult(QtWidgets.QWidget):
         germetic_price = 1100
         germetic_price_common = 1100
 
-        column_amount = ceil(self.main_lenght / 200)
+        column_amount = ceil(self.main_lenght / 0.2)
         column_weight = column_amount * 2
         column_price = 387.29
         column_price_common = column_amount * column_price
@@ -264,7 +264,7 @@ class WindowGetResult(QtWidgets.QWidget):
         ankers_price = 33.59
         ankers_price_common = ankers_amount * ankers_price
 
-        tapes_amount = ceil(self.main_lenght / 500)
+        tapes_amount = ceil(self.main_lenght / 0.5)
         tapes_weight = tapes_amount * 3.68
         tapes_price = 999.1
         tapes_price_common = tapes_price * tapes_amount
