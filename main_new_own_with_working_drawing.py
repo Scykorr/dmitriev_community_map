@@ -12,7 +12,8 @@ from GUIpy.result_table import Ui_Form_muft_list
 from GUIpy.main_result import Ui_Form_main_result
 from GUIpy.cabels_list import Ui_Form_list_of_cables
 from show_test_img import Window
-from PyQt5.QtWidgets import QApplication, QTableWidgetItem, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QApplication, QTableWidgetItem, QFileDialog, QMessageBox, QLineEdit, QWidget, QVBoxLayout, \
+    QHBoxLayout, QPushButton
 from PyQt5.QtWidgets import QMenu, QAction, qApp
 from math import ceil, sqrt, pow
 
@@ -24,11 +25,12 @@ first_window_muft_params = []
 class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
     def __init__(self):
         super().__init__()
+        self.points_list_for_len = None
         self.scale_value = 1
         self.setupUi(self)
         # self.imageView = imgView.QImageView(window=self)
         # self.setCentralWidget(self.imageView.centralWidget)
-
+        self.setFixedSize(1500, 1000)
         self.createActions()
         self.scaling = 1
         self.image = None
@@ -36,7 +38,21 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
         self.open_img()
         self.new_win = Window(self.image, self.points_list)
         self.draw_flags()
-        self.setCentralWidget(self.new_win)
+        self.lbl_1 = QLineEdit(self)
+        self.lbl_1.resize(100, 20)
+        self.lbl_1.move(0, 0)
+        self.add_button = QPushButton("Записать")
+        self.add_button.clicked.connect(self.add_button_clicked)
+        self.lbl_1.setText("100 100")
+        self.layout = QVBoxLayout()
+        self.hbox = QHBoxLayout()
+        self.hbox.addWidget(self.lbl_1)
+        self.hbox.addWidget(self.add_button)
+        self.layout.addWidget(self.new_win)
+        self.layout.addLayout(self.hbox)
+        self.widget = QWidget()
+        self.widget.setLayout(self.layout)
+        self.setCentralWidget(self.widget)
 
         self.createMenus()
         self.setWindowTitle('Построение оптического линейного тракта')
@@ -45,18 +61,36 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
         self.get_lenght()
         self.get_result_window = WindowGetResult()
 
+    def add_button_clicked(self):
+        with open("coordinates.txt", "r", encoding="utf-8") as f:
+            lines = [line for line in f]
+            self.points_list_for_len = self.get_coords_from_txt()
+            if "" in self.points_list_for_len:
+                self.points_list_for_len.remove("")
+            if len(self.points_list_for_len) != 10:
+                with open("coordinates.txt", "a", encoding="utf-8") as f1:
+                    f1.write(f'{self.lbl_1.text()}\n')
+
+    def mouseMoveEvent(self, event):
+        pos = QCursor.pos()
+        self.lbl_1.setText(f'{pos.x()} {pos.y()}')
+
     def get_lenght(self):
         self.input_lenght = 0
+        if "" in self.points_list:
+            self.points_list.remove("")
         for el_num in range(0, len(self.points_list) - 1):
             new_el = self.points_list[el_num].split()
             new_el_next = self.points_list[el_num + 1].split()
             self.input_lenght += round(sqrt(
-                pow(int(new_el_next[0]) - int(new_el[0]), 2) + pow(int(new_el_next[1]) - int(new_el[1]), 2)) / 37.936267, 2)
+                pow(int(new_el_next[0]) - int(new_el[0]), 2) + pow(int(new_el_next[1]) - int(new_el[1]),
+                                                                   2)) / 37.936267, 2)
 
     def draw_flags(self):
-        for el in self.points_list:
-            new_el = el.split()
-            self.new_win.draw_flag(int(new_el[0]), int(new_el[1]))
+        if len(self.points_list) >= 10:
+            for el in self.points_list:
+                new_el = el.split()
+                self.new_win.draw_flag(int(new_el[0]), int(new_el[1]))
 
     def get_coords_from_txt(self):
         with open('coordinates.txt', 'r') as f:
@@ -81,7 +115,7 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
             self.pressPos = event.pos()
             pos = QCursor.pos()
             # self.new_win.draw_flag(pos.x(), pos.y())
-            print(pos.x(), pos.y())
+            self.lbl_1.setText(f'{pos.x()} {pos.y()}')
 
     def fitToWindow(self):
         fitToWindow = self.fitToWindowAct.isChecked()
