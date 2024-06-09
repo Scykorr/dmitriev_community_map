@@ -32,39 +32,39 @@ class Window(QWidget):
             painter.setPen(QPen(Qt.black, 5))
             new_el = self.points_list[0].split()
             new_el_next = self.points_list[1].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[1].split()
             new_el_next = self.points_list[2].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[2].split()
             new_el_next = self.points_list[3].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[3].split()
             new_el_next = self.points_list[4].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1])- 50)
 
             new_el = self.points_list[4].split()
             new_el_next = self.points_list[5].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[5].split()
             new_el_next = self.points_list[6].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[6].split()
             new_el_next = self.points_list[7].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[7].split()
             new_el_next = self.points_list[8].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
             new_el = self.points_list[8].split()
             new_el_next = self.points_list[9].split()
-            painter.drawLine(int(new_el[0]) + 50, int(new_el[1]) + 50, int(new_el_next[0]) + 50, int(new_el_next[1]) + 50)
+            painter.drawLine(int(new_el[0]), int(new_el[1]) - 50, int(new_el_next[0]), int(new_el_next[1]) - 50)
 
 
             # for el_num in range(0, len(self.points_list)):
@@ -83,7 +83,7 @@ class Window(QWidget):
         self.pix = QPixmap("png-flag.png")
         self.lbl.setPixmap(self.pix)
         self.lbl.resize(100, 100)
-        self.lbl.move(dx, dy)
+        self.lbl.move(dx - 35, dy - 75)
 
 
 if __name__ == "__main__":

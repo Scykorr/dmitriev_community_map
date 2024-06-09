@@ -30,7 +30,7 @@ class MyMainWindow(QtWidgets.QMainWindow, main_new_own.Ui_MainWindow):
         self.setupUi(self)
         # self.imageView = imgView.QImageView(window=self)
         # self.setCentralWidget(self.imageView.centralWidget)
-        self.setFixedSize(1500, 1000)
+        # self.setFixedSize(1500, 1000)
         self.createActions()
         self.scaling = 1
         self.image = None
