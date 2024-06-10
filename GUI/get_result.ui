@@ -222,6 +222,11 @@
      <string>Да</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="comboBox_2">
    <property name="geometry">
@@ -235,6 +240,11 @@
    <item>
     <property name="text">
      <string>Многомодульная</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Одномодульная</string>
     </property>
    </item>
   </widget>
@@ -252,6 +262,11 @@
      <string>-П-</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>-Н-</string>
+    </property>
+   </item>
   </widget>
   <widget class="QComboBox" name="comboBox_4">
    <property name="geometry">
@@ -264,7 +279,22 @@
    </property>
    <item>
     <property name="text">
-     <string>1-3 Группа</string>
+     <string>1-3 группа</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4-5 группа</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Болота</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Под водой</string>
     </property>
    </item>
   </widget>
